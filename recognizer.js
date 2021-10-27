@@ -21,7 +21,7 @@ function modelLoaded(){
 }
 
 function check(){
-    img=document.getElementById("captured_image");
+    img=document.getElementById("capture_img");
     classifier.classify(img,gotResult);
 }
 
@@ -32,7 +32,6 @@ function gotResult(error,results){
     else{
         console.log(results);
         document.getElementById("MemberName").innerHTML=results[0].label;
-        confidence=results[0].confidence*100;
-        document.getElementById("MemberAccuracy").innerHTML=confidence.toFixed(0)+"%";
+        document.getElementById("MemberAccuracy").innerHTML=(results[0].confidence*100).toFixed(0)+"%";
     }
 }
